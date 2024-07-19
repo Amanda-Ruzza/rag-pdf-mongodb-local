@@ -34,10 +34,10 @@ It was developed locally for future Cloud Deployment - in AWS and GCP - using Se
 
 ## Prerequisites
 
-Python = 3.11
-Tesseract CLI
-OpenAI API Key
-MongoDB Atlas Cluster and Database - Instructions for the free MongoDB Atlas account, cluster and database set up can be found [here](https://www.mongodb.com/docs/atlas/getting-started/) .
+* Python = 3.11
+* Tesseract CLI
+* OpenAI API Key
+* MongoDB Atlas Cluster and Database - Instructions for the free MongoDB Atlas account, cluster and database set up can be found [here](https://www.mongodb.com/docs/atlas/getting-started/) .
 
 ## Reference Architecture
 ---
