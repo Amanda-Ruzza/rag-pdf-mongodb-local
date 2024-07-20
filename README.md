@@ -1,4 +1,4 @@
-# Local Machine GenAI Chatbot application with Streamlit, MongoDB Atlas, Langchain, and OpenAI
+# Local Machine GenAI Chatbot application with Streamlit, MongoDB Atlas, Langchain and OpenAI
 
 ---
 
@@ -18,15 +18,16 @@ It was developed locally for future Cloud Deployment - in AWS and GCP - using Se
 
 ## Key Features
 
-* A series of observability/logs features for future Cloud Development considerations
-* A Langchain `callback` function that calculates 'OpenAi' token usage and prints it to a logger file. ![cost-screenshot](images/openai-token-usage-mdb-logs-screenshot.png) 
-* MongoDB operation specific logs recorded through the `pymongo` driver
-* A `script execution time` measurement functionality
-* A secure API/TOKEN keys connection hidden in the `.env` file
+* Secure API/TOKEN keys connection hidden in the `.env` file
+* Processes multiple files - up to 200MB - within 1 single upload operation
 * Capability to answer questions based on documents that are already vectorized and stored in the database - no need to reupload the same PDFs
 * Ability to extract text from AES locked PDFs or PDFs with background images that block a simple text extraction
 * Text extraction parallel processing for  PDFs > 5MB for faster application performance
 * A 'Clear Chat History' button
+* A series of observability/logs features for future Cloud Development considerations:
+  * A Langchain `callback` function that calculates 'OpenAi' token usage and prints it to a logger file. ![cost-screenshot](images/openai-token-usage-mdb-logs-screenshot.png) 
+  * MongoDB operation specific logs recorded through the `pymongo` driver
+  * A `script execution time` measurement functionality
 
 </br>
 
@@ -34,7 +35,7 @@ It was developed locally for future Cloud Deployment - in AWS and GCP - using Se
 
 ## Prerequisites
 
-* Python = 3.11
+* Python >=3.11
 * Tesseract CLI
 * OpenAI API Key
 * MongoDB Atlas Cluster and Database - Instructions for the free MongoDB Atlas account, cluster and database set up can be found [here](https://www.mongodb.com/docs/atlas/getting-started/) .
@@ -47,7 +48,8 @@ It was developed locally for future Cloud Deployment - in AWS and GCP - using Se
 ---
 ### MongoDB Atlas Setup
 ---
-
+Networking
+connection string
 
 #### Vector Search Index Creation
 ---
@@ -59,12 +61,16 @@ Navigate to Data Services > Your Cluster > Browse Collections > Atlas Search
 
 
 #### Additional Setup
+
 * Install the [tesseract cli](https://tesseract-ocr.github.io/tessdoc/Command-Line-Usage.html) in your local machine and add the `tesseract location path` to the `.env` file - `pytesseract` is a python package for `tesseract`, however, it works out of the tesseract cli locally installed
 * 
 
 
 #### Virtual Environment Activation
 
+Create a `chatbot-app` virtual environment for your project:
+
+And activate it:
 `source chatbot-env/bin/activate`
 
 #### Shell Script
