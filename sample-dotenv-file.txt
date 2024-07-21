@@ -1,0 +1,20 @@
+///
+This is a sample of how the `.env` should be configured for this application.
+Replace the contents of the ENVIRONMENT_VARIABLES with your own content and save it as `.env` . 
+///
+
+---------
+# Secret API Keys:
+OPENAI_API_KEY=<YOUR-SECRET-API-KEY>
+
+# MongoDB Connection String
+ATLAS_URI=mongodb+srv://<MONGOUSER>:<PASSWORD>@<CLUSTER-NAME>.saewqkq.mongodb.net/?retryWrites=true&w=majority&appName=<CLUSTER_NAME>
+
+# Database Name
+MONGODB_DB=<YOUR_DATASE_NAME>
+
+# Collection Name
+MONGODB_COLLECTION=<YOUR_COLLECTION_NAME>
+
+# local path to the Tesseract OCR engine
+TESSERACT_PATH=/opt/homebrew/bin/tesseract

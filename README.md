@@ -13,8 +13,7 @@ It was developed locally for future Cloud Deployment - in AWS and GCP - using Se
 * **Dotenv** - Local secret management
 * **PyPDF** - PDF text extraction
 * **PyTesseract** - OCR on AES Encrypted PDFs or PDFs with images in the background that would result in an empty text extraction
-
----
+</br>
 
 ## Key Features
 
@@ -38,32 +37,57 @@ It was developed locally for future Cloud Deployment - in AWS and GCP - using Se
 * Python >=3.11
 * Tesseract CLI
 * OpenAI API Key
-* MongoDB Atlas Cluster and Database - Instructions for the free MongoDB Atlas account, cluster and database set up can be found [here](https://www.mongodb.com/docs/atlas/getting-started/) .
+* MongoDB Atlas Cluster and Database
 
 ## Reference Architecture
----
+
 ![architecture-diagram](images/local-rag-mdb-diagram.png)
 
+---
+
 ## Setup instructions
----
+
 ### MongoDB Atlas Setup
----
-Networking
-connection string
+
+* Instructions for the free MongoDB Atlas account, cluster and database set up can be found [here](https://www.mongodb.com/docs/atlas/getting-started/).
+* Once your cluster and database is set up, navigate to Data Services > Network Access and click on the `IP Access List` tab. Confirm that your local machine IP address is in `Active` Status.
+![networking-screenshot](images/mdb-networking-screenshot)
+</br>
+* Go to Data Services > Database, click on the `connect` tab, and copy the database connection string into your `.env` file.
+![connection-string](images/mdb-connection-screenshot.png)
+</br>
 
 #### Vector Search Index Creation
----
-Navigate to Data Services > Your Cluster > Browse Collections > Atlas Search
 
-{Select movies collection from sample_mflix database and copy and paste the JSON snippet below.}
+* Navigate to Data Services > Your Cluster > Browse Collections > Atlas Search
 
-[add the JSON]
+* Select the database you created for this project - for example, `chatbot_db`  and copy and paste the JSON snippet below.
 
+![json-vector-index](images/mdb-index-json-screenshot.png)
+
+```
+
+{
+  "fields": [
+    {
+      "numDimensions": 1536,
+      "path": "embedding",
+      "similarity": "cosine",
+      "type": "vector"
+    }
+  ]
+}
+
+```
+
+* Select 'Next'
+* Confirm Index Creation by clicking on Create Search Index
+* Once the index is in status Active, it is ready for use
 
 #### Additional Setup
 
 * Install the [tesseract cli](https://tesseract-ocr.github.io/tessdoc/Command-Line-Usage.html) in your local machine and add the `tesseract location path` to the `.env` file - `pytesseract` is a python package for `tesseract`, however, it works out of the tesseract cli locally installed
-* 
+* Insert your environment variables in the `.env` file. For reference, see the [sample-dotenv-file.txt](sample-dotenv-file.txt) in this repository.
 
 
 #### Virtual Environment Activation
