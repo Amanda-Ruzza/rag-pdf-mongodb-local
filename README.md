@@ -51,13 +51,21 @@ It was developed locally for future Cloud Deployment - in AWS and GCP - using Se
 
 * Instructions for the free MongoDB Atlas account, cluster and database set up can be found [here](https://www.mongodb.com/docs/atlas/getting-started/).
 * Once your cluster and database is set up, navigate to Data Services > Network Access and click on the `IP Access List` tab. Confirm that your local machine IP address is in `Active` Status.
-![networking-screenshot](images/mdb-networking-screenshot)
+* </br>
+  
+![networking-screenshot](images/mdb-networking-screenshot.png)
 </br>
+
 * Go to Data Services > Database, click on the `connect` tab, and copy the database connection string into your `.env` file.
+
+</br>
+
 ![connection-string](images/mdb-connection-screenshot.png)
 </br>
 
 #### Vector Search Index Creation
+
+The final step after creating a cluster, database, and establishing a connection, is to create a `vector search index`.
 
 * Navigate to Data Services > Your Cluster > Browse Collections > Atlas Search
 
@@ -65,7 +73,7 @@ It was developed locally for future Cloud Deployment - in AWS and GCP - using Se
 
 ![json-vector-index](images/mdb-index-json-screenshot.png)
 
-```
+```json
 
 {
   "fields": [
@@ -80,22 +88,23 @@ It was developed locally for future Cloud Deployment - in AWS and GCP - using Se
 
 ```
 
-* Select 'Next'
-* Confirm Index Creation by clicking on Create Search Index
-* Once the index is in status Active, it is ready for use
+* Select _'Next'_
+* Confirm _index creation_ by clicking on `Create Search Index`
+* The index will be ready for use once is in _'Active Status'_
 
 #### Additional Setup
 
 * Install the [tesseract cli](https://tesseract-ocr.github.io/tessdoc/Command-Line-Usage.html) in your local machine and add the `tesseract location path` to the `.env` file - `pytesseract` is a python package for `tesseract`, however, it works out of the tesseract cli locally installed
 * Insert your environment variables in the `.env` file. For reference, see the [sample-dotenv-file.txt](sample-dotenv-file.txt) in this repository.
 
-
 #### Virtual Environment Activation
 
-Create a `chatbot-app` virtual environment for your project:
-
-And activate it:
-`source chatbot-env/bin/activate`
+* Create a `chatbot-app` virtual environment for your project:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`python -m venv chatbot-env`
+* Activate it:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`source chatbot-env/bin/activate`
+* Install the dependencies:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`pip install -r requirements.txt`  
 
 #### Shell Script
 
@@ -103,12 +112,11 @@ As an option, edit the `sample_run_chatbot.sh` bash script with your local machi
 
 `./sample_run_chatbot.sh`
 
+---
+
 ## Future Improvements
 
-Implement PDF metadata extraction, and send a JSON file with the 'PDF Name' + 'file size' + 'date processed' into a different MongoDB database within the DB Cluster, and create a container in Streamlit so that the user can visualize a list of previously processed PDFs, for further 'conversation'.
-
-
-* Create a 'Web URL Input' functionality, so that the user has the option to either upload a file or add a PDF web url.
-* Create a 'document uploaded' metadata JSON file that will be sent into a NoSQL database so that there is a record of all the PDFs previously vectorized, so that the user can view a list of these PDFs and ask questions about them.
+* Create a 'Web URL Input' functionality, so that the user has the option to either upload a file or add a PDF web url
+* Implement PDF metadata extraction. Create a 'document uploaded' metadata JSON file that will be sent into a separate  MongoDB Atlas  database so that there is a record of all the PDFs previously vectorized. That way that the user will be able to view a list of these PDFs and ask questions about them
 * Create a drop down box in the UI, so that the user can view these available PDF file names.
-* Cloud Native Deployment on AWS and GCP.
+* Cloud Native Deployment on AWS and GCP
