@@ -23,7 +23,7 @@ It was developed locally for future Cloud Deployment - in AWS and GCP - using Se
 * Capability to answer questions based on documents that are already vectorized and stored in the database - no need to reupload the same PDFs
 * Ability to extract text from AES locked PDFs or PDFs with background images that block a simple text extraction
 * Text extraction parallel processing for  PDFs > 5MB for faster application performance
-* A 'Clear Chat History' button
+* A _'Clear Chat History'_ button
 * A series of observability/logs features for future Cloud Development considerations:
   * A Langchain `callback` function that calculates 'OpenAi' token usage and prints it to a logger file. ![cost-screenshot](images/openai-token-usage-mdb-logs-screenshot.png) 
   * MongoDB operation specific logs recorded through the `pymongo` driver
@@ -42,7 +42,7 @@ It was developed locally for future Cloud Deployment - in AWS and GCP - using Se
 
 ## Reference Architecture
 ---
-
+![architecture-diagram](images/local-rag-mdb-diagram.png)
 
 ## Setup instructions
 ---
