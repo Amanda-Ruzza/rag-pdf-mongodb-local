@@ -1,10 +1,11 @@
-# Local Machine GenAI Chatbot application with Streamlit, MongoDB Atlas, Langchain and OpenAI
+# :computer: Local Machine GenAI Chatbot  application with Streamlit, MongoDB Atlas, Langchain and OpenAI
 
 ---
+<span style="color:darkblue">*version = 1.0.0*</span>
 
 This Python Retrieval-Augmented Generation (RAG) application is able to read multiple PDFs - up to 200MB at a time - and answer questions based on the information in those PDFs. In simpler terms, it can find relevant information from the PDFs and use that information to answer your questions.
 
-It was developed locally for future Cloud Deployment - in AWS and GCP - using Serverless Containers. Application stack:
+It was developed locally for future Cloud Deployment :cloud: - in AWS and GCP - using Serverless Containers. Application stack:
 
 * **Streamlit** - Front End
 * **OpenAi** - LLM/Foundation Model
@@ -24,13 +25,22 @@ It was developed locally for future Cloud Deployment - in AWS and GCP - using Se
 * Text extraction parallel processing for  PDFs > 5MB for faster application performance
 * A _'Clear Chat History'_ button
 * A series of observability/logs features for future Cloud Development considerations:
-  * A Langchain `callback` function that calculates 'OpenAi' token usage and prints it to a logger file. ![cost-screenshot](images/openai-token-usage-mdb-logs-screenshot.png) 
+  * A Langchain `callback` function that calculates 'OpenAi' token usage and prints it to a logger file.
+  ![cost-screenshot](images/openai-token-usage-mdb-logs-screenshot.png) 
   * MongoDB operation specific logs recorded through the `pymongo` driver
   * A `script execution time` measurement functionality
 
 </br>
 
 ![mdb-vector-screenshot-1](images/mdb-compass-screenshot-1.png)
+
+---
+
+## Reference Architecture
+
+![architecture-diagram](images/local-rag-mdb-diagram.png)
+
+---
 
 ## Prerequisites
 
@@ -39,19 +49,17 @@ It was developed locally for future Cloud Deployment - in AWS and GCP - using Se
 * OpenAI API Key
 * MongoDB Atlas Cluster and Database
 
-## Reference Architecture
-
-![architecture-diagram](images/local-rag-mdb-diagram.png)
-
 ---
 
 ## Setup instructions
 
-### MongoDB Atlas Setup
+Below are the steps on how to setup this application on your local machine :arrow_down:
+
+#### MongoDB Atlas Setup
 
 * Instructions for the free MongoDB Atlas account, cluster and database set up can be found [here](https://www.mongodb.com/docs/atlas/getting-started/).
 * Once your cluster and database is set up, navigate to Data Services > Network Access and click on the `IP Access List` tab. Confirm that your local machine IP address is in `Active` Status.
-* </br>
+ </br>
   
 ![networking-screenshot](images/mdb-networking-screenshot.png)
 </br>
@@ -89,7 +97,7 @@ The final step after creating a cluster, database, and establishing a connection
 ```
 
 * Select _'Next'_
-* Confirm _index creation_ by clicking on `Create Search Index`
+* Confirm _index creation_ by clicking on **Create Search Index**
 * The index will be ready for use once is in _'Active Status'_
 
 #### Additional Setup
@@ -116,7 +124,7 @@ As an option, edit the `sample_run_chatbot.sh` bash script with your local machi
 
 ## Future Improvements
 
-* Create a 'Web URL Input' functionality, so that the user has the option to either upload a file or add a PDF web url
-* Implement PDF metadata extraction. Create a 'document uploaded' metadata JSON file that will be sent into a separate  MongoDB Atlas  database so that there is a record of all the PDFs previously vectorized. That way that the user will be able to view a list of these PDFs and ask questions about them
-* Create a drop down box in the UI, so that the user can view these available PDF file names.
+* Create a *'Web URL Input'* functionality, so that the user has the option to either upload a file or add a PDF web url
+* Implement PDF metadata extraction. Create a _'document uploaded'_ metadata JSON file that will be sent into a separate  _MongoDB Atlas  Database_ so that there is a record of all the PDFs previously vectorized. That way that the user will be able to view a list of these PDFs and ask questions about them
+* Create a drop down box in the UI, so that the user can view these available PDF file names
 * Cloud Native Deployment on AWS and GCP
