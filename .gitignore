@@ -10,8 +10,8 @@
 # test images:
 "musician_question.png"
 
-# video demo files:
-*.mp4
+# Large video demo files:
+"rag-pdf-mongodb-local-demo-video.mp4"
 
 # Docker Ignore
 .dockerignore
