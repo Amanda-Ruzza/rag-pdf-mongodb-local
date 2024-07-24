@@ -2,10 +2,16 @@
 
 _Demo Video_ :arrow_down:
 
-[![Watch the demo video](https://img.youtube.com/vi/E0RpmGbmKEg/0.jpg)](https://youtu.be/E0RpmGbmKEg)
+<!-- markdownlint-disable-next-line MD033 -->
+<a href="https://youtu.be/E0RpmGbmKEg" target="_blank">
+<!-- markdownlint-disable-next-line MD033 -->
+  <img src="https://img.youtube.com/vi/E0RpmGbmKEg/0.jpg" alt="Watch the video">
+</a>
 
 ---
-<span style="color:darkblue">*version = 1.0.0*</span>
+<!-- markdownlint-disable-next-line MD033 -->
+<span style="color:darkblue">_version = 1.0.0_</span>
+<!-- markdownlint-enable MD033 -->
 
 This Python Retrieval-Augmented Generation (RAG) application is able to read multiple PDFs - up to 200MB at a time - and answer questions based on the information in those PDFs. In simpler terms, it can find relevant information from the PDFs and use that information to answer your questions.
 
