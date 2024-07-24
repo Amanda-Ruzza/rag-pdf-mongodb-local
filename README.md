@@ -1,6 +1,6 @@
 # :computer: Local Machine GenAI Chatbot  application with Streamlit, MongoDB Atlas, Langchain and OpenAI
 
-_Demo Video_ :arrow_down:
+_'Right Click'_ to watch the __Demo Video__ :arrow_down: in a new browser tab:
 
 <!-- markdownlint-disable-next-line MD033 -->
 <a href="https://youtu.be/E0RpmGbmKEg" target="_blank">
