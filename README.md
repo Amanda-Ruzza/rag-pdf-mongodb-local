@@ -1,5 +1,9 @@
 # :computer: Local Machine GenAI Chatbot  application with Streamlit, MongoDB Atlas, Langchain and OpenAI
 
+_Demo Video_ :arrow_down:
+
+[![Watch the demo video](https://img.youtube.com/vi/E0RpmGbmKEg/0.jpg)](https://youtu.be/E0RpmGbmKEg)
+
 ---
 <span style="color:darkblue">*version = 1.0.0*</span>
 
